@@ -1,0 +1,207 @@
+﻿<div class="page has-sidebar has-sidebar-fluid has-sidebar-expand-xl">
+  <div class="sidebar-backdrop"></div>
+
+  <partial name="_ListClients" />
+  <partial name="_ItemClient" />
+
+
+  <!-- Keep in mind that modals should be placed outsite of page sidebar -->
+  <!-- .modal -->
+  <form id="clientNewForm" name="clientNewForm">
+    <div class="modal fade" id="clientNewModal" tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel" aria-hidden="true">
+      <!-- .modal-dialog -->
+      <div class="modal-dialog" role="document">
+        <!-- .modal-content -->
+        <div class="modal-content">
+          <!-- .modal-header -->
+          <div class="modal-header">
+            <h6 id="clientNewModalLabel" class="modal-title inline-editable">
+              <span class="sr-only">Client name</span> <input type="text" class="form-control form-control-lg" placeholder="E.g. Stilearning, Inc." required="">
+            </h6>
+          </div><!-- /.modal-header -->
+          <!-- .modal-body -->
+          <div class="modal-body">
+            <!-- .form-row -->
+            <div class="form-row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="cnContactName">Contact name</label> <input type="text" id="cnContactName" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="cnContactEmail">Contact email</label> <input type="email" id="cnContactEmail" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="cnStreet">Street</label> <input type="text" id="cnStreet" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="cnSuite">Suite</label> <input type="text" id="cnSuite" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="cnZip">Zip</label> <input type="text" id="cnZip" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="cnCountry">Country</label> <select id="cnCountry" class="custom-select d-block w-100">
+                    <option value=""> Choose... </option>
+                    <option> United States </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="cnCity">City</label> <select id="cnCity" class="custom-select d-block w-100">
+                    <option value=""> Choose... </option>
+                    <option> San Francisco </option>
+                  </select>
+                </div>
+              </div>
+            </div><!-- /.form-row -->
+          </div><!-- /.modal-body -->
+          <!-- .modal-footer -->
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save</button> <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+          </div><!-- /.modal-footer -->
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+  </form><!-- /.modal -->
+  <!-- .modal -->
+  <form id="clientBillingEditForm" name="clientBillingEditForm">
+    <div class="modal fade" id="clientBillingEditModal" tabindex="-1" role="dialog" aria-labelledby="clientBillingEditModalLabel" aria-hidden="true">
+      <!-- .modal-dialog -->
+      <div class="modal-dialog" role="document">
+        <!-- .modal-content -->
+        <div class="modal-content">
+          <!-- .modal-header -->
+          <div class="modal-header">
+            <h6 id="clientBillingEditModalLabel" class="modal-title inline-editable">
+              <span class="sr-only">Client name</span> <input type="text" class="form-control form-control-lg" value="Zathunicon, Inc." placeholder="E.g. Stilearning, Inc." required="">
+            </h6>
+          </div><!-- /.modal-header -->
+          <!-- .modal-body -->
+          <div class="modal-body">
+            <!-- .form-row -->
+            <div class="form-row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="ceStreet">Street</label> <input type="text" id="ceStreet" class="form-control" value="280 Suzanne Throughway">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="ceSuite">Suite</label> <input type="text" id="ceSuite" class="form-control" value="Breannabury">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="ceZip">Zip</label> <input type="text" id="ceZip" class="form-control" value="45801">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="ceCountry">Country</label> <select id="ceCountry" class="custom-select d-block w-100">
+                    <option value=""> Choose... </option>
+                    <option selected=""> United States </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="ceCity">City</label> <select id="ceCity" class="custom-select d-block w-100">
+                    <option value=""> Choose... </option>
+                    <option selected=""> San Francisco </option>
+                  </select>
+                </div>
+              </div>
+            </div><!-- /.form-row -->
+          </div><!-- /.modal-body -->
+          <!-- .modal-footer -->
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save</button> <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+          </div><!-- /.modal-footer -->
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+  </form><!-- /.modal -->
+  <!-- .modal -->
+  <form id="clientContactNewForm" name="clientContactNewForm">
+    <div class="modal fade" id="clientContactNewModal" tabindex="-1" role="dialog" aria-labelledby="clientContactNewModalLabel" aria-hidden="true">
+      <!-- .modal-dialog -->
+      <div class="modal-dialog" role="document">
+        <!-- .modal-content -->
+        <div class="modal-content">
+          <!-- .modal-header -->
+          <div class="modal-header">
+            <h6 id="clientContactNewModalLabel" class="modal-title inline-editable">
+              <span class="sr-only">Contact name</span> <input type="text" class="form-control form-control-lg" placeholder="Name (e.g. John Doe)" required="">
+            </h6>
+          </div><!-- /.modal-header -->
+          <!-- .modal-body -->
+          <div class="modal-body">
+            <!-- .form-group -->
+            <div class="form-group">
+              <div class="form-label-group">
+                <input type="email" id="cnEmail" class="form-control placeholder-shown" placeholder="Email" required=""> <label for="cnEmail">Email</label>
+              </div>
+            </div><!-- /.form-group -->
+            <!-- .form-group -->
+            <div class="form-group">
+              <div class="form-label-group">
+                <input type="tel" id="cnPhone" class="form-control placeholder-shown" placeholder="Phone"> <label for="cnPhone">Phone</label>
+              </div>
+            </div><!-- /.form-group -->
+          </div><!-- /.modal-body -->
+          <!-- .modal-footer -->
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save</button> <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+          </div><!-- /.modal-footer -->
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+  </form><!-- /.modal -->
+  <!-- .modal -->
+  <form id="clientContactEditForm" name="clientContactEditForm">
+    <div class="modal fade" id="clientContactEditModal" tabindex="-1" role="dialog" aria-labelledby="clientContactEditModalLabel" aria-hidden="true">
+      <!-- .modal-dialog -->
+      <div class="modal-dialog" role="document">
+        <!-- .modal-content -->
+        <div class="modal-content">
+          <!-- .modal-header -->
+          <div class="modal-header">
+            <h6 id="clientContactEditModalLabel" class="modal-title inline-editable">
+              <span class="sr-only">Contact name</span> <input type="text" class="form-control form-control-lg" value="Alexane Collins" placeholder="Name (e.g. John Doe)" required="">
+            </h6>
+          </div><!-- /.modal-header -->
+          <!-- .modal-body -->
+          <div class="modal-body">
+            <!-- .form-group -->
+            <div class="form-group">
+              <div class="form-label-group">
+                <input type="email" id="ceEmail" class="form-control" value="fhauck@gmail.com" placeholder="Email" required=""> <label for="ceEmail">Email</label>
+              </div>
+            </div><!-- /.form-group -->
+            <!-- .form-group -->
+            <div class="form-group">
+              <div class="form-label-group">
+                <input type="tel" id="cePhone" class="form-control" value="0621099222" placeholder="Phone"> <label for="cePhone">Phone</label>
+              </div>
+            </div><!-- /.form-group -->
+          </div><!-- /.modal-body -->
+          <!-- .modal-footer -->
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save</button> <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+          </div><!-- /.modal-footer -->
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+  </form><!-- /.modal -->
+</div>
