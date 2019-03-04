@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\CSM.Domain.Entities\CSM.Domain.Entities.csproj" />
+    <ProjectReference Include="..\..\Core\CSM.Domain.Interfaces\CSM.Domain.Interfaces.csproj" />
   </ItemGroup>
 
   <ItemGroup>
