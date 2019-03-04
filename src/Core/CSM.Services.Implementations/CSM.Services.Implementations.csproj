@@ -5,9 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\CSM.Services.Interfaces\CSM.Services.Interfaces.csproj" />
     <ProjectReference Include="..\CSM.Domain.Entities\CSM.Domain.Entities.csproj" />
     <ProjectReference Include="..\CSM.Domain.Interfaces\CSM.Domain.Interfaces.csproj" />
+    <ProjectReference Include="..\CSM.Services.Interfaces\CSM.Services.Interfaces.csproj" />
   </ItemGroup>
 
   <ItemGroup>
