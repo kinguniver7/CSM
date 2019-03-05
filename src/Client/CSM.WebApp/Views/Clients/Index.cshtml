@@ -3,77 +3,7 @@
 
   <partial name="_ListClients" />
   <partial name="_ItemClient" />
-
-
-  <!-- Keep in mind that modals should be placed outsite of page sidebar -->
-  <!-- .modal -->
-  <form id="clientNewForm" name="clientNewForm">
-    <div class="modal fade" id="clientNewModal" tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel" aria-hidden="true">
-      <!-- .modal-dialog -->
-      <div class="modal-dialog" role="document">
-        <!-- .modal-content -->
-        <div class="modal-content">
-          <!-- .modal-header -->
-          <div class="modal-header">
-            <h6 id="clientNewModalLabel" class="modal-title inline-editable">
-              <span class="sr-only">Client name</span> <input type="text" class="form-control form-control-lg" placeholder="E.g. Stilearning, Inc." required="">
-            </h6>
-          </div><!-- /.modal-header -->
-          <!-- .modal-body -->
-          <div class="modal-body">
-            <!-- .form-row -->
-            <div class="form-row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label for="cnContactName">Contact name</label> <input type="text" id="cnContactName" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label for="cnContactEmail">Contact email</label> <input type="email" id="cnContactEmail" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label for="cnStreet">Street</label> <input type="text" id="cnStreet" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="cnSuite">Suite</label> <input type="text" id="cnSuite" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="cnZip">Zip</label> <input type="text" id="cnZip" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="cnCountry">Country</label> <select id="cnCountry" class="custom-select d-block w-100">
-                    <option value=""> Choose... </option>
-                    <option> United States </option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="cnCity">City</label> <select id="cnCity" class="custom-select d-block w-100">
-                    <option value=""> Choose... </option>
-                    <option> San Francisco </option>
-                  </select>
-                </div>
-              </div>
-            </div><!-- /.form-row -->
-          </div><!-- /.modal-body -->
-          <!-- .modal-footer -->
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Save</button> <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-          </div><!-- /.modal-footer -->
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div>
-  </form><!-- /.modal -->
+  <partial name="_CreateClient" />
   <!-- .modal -->
   <form id="clientBillingEditForm" name="clientBillingEditForm">
     <div class="modal fade" id="clientBillingEditModal" tabindex="-1" role="dialog" aria-labelledby="clientBillingEditModalLabel" aria-hidden="true">
@@ -205,3 +135,7 @@
     </div>
   </form><!-- /.modal -->
 </div>
+
+@section Scripts{ 
+  <script src="~/js/controllers/clients/clients.js"></script>
+}

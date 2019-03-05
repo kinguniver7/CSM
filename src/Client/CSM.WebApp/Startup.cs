@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using CSM.Domain.Entities.Users;
 using CSM.Domain.Interfaces.Clients;
+using CSM.Domain.Interfaces.Users;
 using CSM.Infrastructure.Data;
 using CSM.Infrastructure.Data.Repositories.Clients;
+using CSM.Infrastructure.Data.Repositories.Users;
 using CSM.Services.Implementations.Clients;
+using CSM.Services.Implementations.Users;
 using CSM.Services.Interfaces.Clients;
+using CSM.Services.Interfaces.Users;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -37,6 +42,7 @@ namespace CSM.WebApp
             //    options.CheckConsentNeeded = context => true;
             //    options.MinimumSameSitePolicy = SameSiteMode.None;
             //});
+            services.AddAutoMapper();
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -86,11 +92,13 @@ namespace CSM.WebApp
 
         private void RegisteredServiceDependency(IServiceCollection services)
         {
-            services.AddScoped<IClientService, ClientService>();
+            services.AddScoped<IApplicationUserService, ApplicationUserService>();
+            services.AddScoped<IClientService, ClientService>(); 
         }
 
         private void RegisteredRepositoryDependency(IServiceCollection services)
         {
+            services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
             services.AddScoped<IClientRepository, ClientRepository>();
         }
     }

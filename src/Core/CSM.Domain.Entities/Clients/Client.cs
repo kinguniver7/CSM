@@ -40,7 +40,7 @@ namespace CSM.Domain.Entities.Clients
         /// <summary>
         /// Gets or sets the address identifier
         /// </summary>
-        public int AddressId { get; set; }
+        public int? AddressId { get; set; }
 
         /// <summary>
         /// Gets or sets the address

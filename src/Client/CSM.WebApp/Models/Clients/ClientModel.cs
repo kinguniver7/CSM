@@ -26,5 +26,7 @@ namespace CSM.WebApp.Models.Clients
         /// Gets or sets the company name
         /// </summary>
         public string Company { get; set; }
+
+        public AddressModel Address { get; set; }
     }
 }

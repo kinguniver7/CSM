@@ -1,0 +1,60 @@
+﻿  <!-- .modal -->
+<form id="createClientForm" name="createClientForm">
+  <div class="modal fade" id="createClientModal" tabindex="-1" role="dialog" aria-labelledby="createClientModalLabel" aria-hidden="true">
+    <!-- .modal-dialog -->
+    <div class="modal-dialog" role="document">
+      <!-- .modal-content -->
+      <div class="modal-content">
+        <!-- .modal-header -->
+        <div class="modal-header">
+          <h6 id="clientNewModalLabel" class="modal-title inline-editable">
+            <span class="sr-only">Company name</span> <input type="text" name="Company" class="form-control form-control-lg" placeholder="No company">
+          </h6>
+        </div><!-- /.modal-header -->
+        <!-- .modal-body -->
+        <div class="modal-body">
+          <!-- .form-row -->
+          <div class="form-row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="FirstName">First name</label> <input type="text" id="FirstName" name="FirstName" class="form-control">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="LastName">Last name</label> <input type="text" id="LastName" name="LastName" class="form-control">
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="LastName">Street</label> <input type="text" id="Street" name="Address.Street" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="LastName">City</label> <input type="text" id="City" name="Address.City" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="LastName">Country</label> <input type="text" id="Country" name="Address.Country" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="LastName">ZipCode</label> <input type="text" id="ZipCode" name="Address.ZipCode" class="form-control">
+              </div>
+            </div>
+
+          </div><!-- /.form-row -->
+        </div><!-- /.modal-body -->
+        <!-- .modal-footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="btnCreteClient">Save</button> <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+        </div><!-- /.modal-footer -->
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+</form><!-- /.modal -->
