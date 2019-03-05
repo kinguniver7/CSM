@@ -14,7 +14,14 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\CSM.Services.Implementations\CSM.Services.Implementations.csproj" />
+    <ProjectReference Include="..\..\Core\CSM.Services.Interfaces\CSM.Services.Interfaces.csproj" />
     <ProjectReference Include="..\..\Infrastructure\CSM.Infrastructure.Data\CSM.Infrastructure.Data.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="ViewModels\Clients\" />
   </ItemGroup>
 
 </Project>

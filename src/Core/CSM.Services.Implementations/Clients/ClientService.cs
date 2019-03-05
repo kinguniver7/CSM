@@ -32,7 +32,7 @@ namespace CSM.Services.Implementations.Clients
 
         public async Task<List<Client>> GetClientsByUserId(string userId)
         {
-            return await _clientRepository.Get().Where(c => true).ToListAsync();
+            return await _clientRepository.Get().Where(c => c.ApplicationUserId == userId).ToListAsync();
         }
     }
 }

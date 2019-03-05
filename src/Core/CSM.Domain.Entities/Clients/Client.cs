@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSM.Domain.Entities.Users;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,6 +11,16 @@ namespace CSM.Domain.Entities.Clients
     public class Client
     {
         public int Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets the application user identifier
+        /// </summary>
+        public string ApplicationUserId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the application user
+        /// </summary>
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
         /// <summary>
         /// Gets or sets the first name
