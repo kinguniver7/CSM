@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSM.Services.Implementation
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B9D9FB1D-A2FA-4306-A427-EBBE975F5994}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSM.Services.Interfaces", "src\Core\CSM.Services.Interfaces\CSM.Services.Interfaces.csproj", "{83BA4CB3-C459-48D2-A1A2-08760CDA4CAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSM.Services.Interfaces", "src\Core\CSM.Services.Interfaces\CSM.Services.Interfaces.csproj", "{83BA4CB3-C459-48D2-A1A2-08760CDA4CAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSM.Services.Tests", "src\Tests\CSM.Services.Tests\CSM.Services.Tests.csproj", "{2D2DA311-0BB2-400D-B9CA-DCCC34EFAA99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,10 @@ Global
 		{83BA4CB3-C459-48D2-A1A2-08760CDA4CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83BA4CB3-C459-48D2-A1A2-08760CDA4CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83BA4CB3-C459-48D2-A1A2-08760CDA4CAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D2DA311-0BB2-400D-B9CA-DCCC34EFAA99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D2DA311-0BB2-400D-B9CA-DCCC34EFAA99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D2DA311-0BB2-400D-B9CA-DCCC34EFAA99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D2DA311-0BB2-400D-B9CA-DCCC34EFAA99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +76,7 @@ Global
 		{CF776665-970D-46B3-849E-16FA7D1F151C} = {0167047C-534B-4288-806D-72D8B1CEB9DD}
 		{B9D9FB1D-A2FA-4306-A427-EBBE975F5994} = {59A30D39-7C06-43FA-9703-3558C341D475}
 		{83BA4CB3-C459-48D2-A1A2-08760CDA4CAF} = {0167047C-534B-4288-806D-72D8B1CEB9DD}
+		{2D2DA311-0BB2-400D-B9CA-DCCC34EFAA99} = {B9D9FB1D-A2FA-4306-A427-EBBE975F5994}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1CFE8DD5-FFC9-439E-9001-9BF49BBDE130}

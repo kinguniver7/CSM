@@ -54,7 +54,7 @@ namespace CSM.WebApp.Controllers
             }
             
 
-            return Json(model);
+            return Json(ModelState);
         }
     }
 }
