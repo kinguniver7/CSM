@@ -10,6 +10,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CSM.Services.Implementations.Clients
 {
+    /// <summary>
+    /// Client service
+    /// </summary>
     public class ClientService : IClientService
     {
         private readonly IClientRepository _clientRepository;
@@ -73,7 +76,7 @@ namespace CSM.Services.Implementations.Clients
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public async Task<List<Client>> GetClientsByUserIdAsync(string userId)
+        public async Task<IList<Client>> GetClientsByUserIdAsync(string userId)
         {
             return await _clientRepository.Get().Where(c => c.ApplicationUserId == userId).ToListAsync();
         }

@@ -40,6 +40,6 @@ namespace CSM.Services.Interfaces.Clients
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        Task<List<Client>> GetClientsByUserIdAsync(string userId);
+        Task<IList<Client>> GetClientsByUserIdAsync(string userId);
     }
 }

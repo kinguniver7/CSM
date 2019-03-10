@@ -4,14 +4,14 @@ using CSM.Infrastructure.Data.Repositories.Clients;
 using CSM.Services.Implementations.Clients;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
 namespace CSM.Services.Tests.Clients
 {
-    public class ClientCRUDServiceTests
-    {
-        private string userId = Guid.NewGuid().ToString();
+    public class ClientServiceTests
+    {        
         
         #region Create
 
@@ -19,13 +19,13 @@ namespace CSM.Services.Tests.Clients
         public async Task CreateWithoutAddress()
         {
             var dbContextOptions = new DbContextOptionsBuilder<ApplicationDbContext>()
-                .UseInMemoryDatabase(databaseName: "CreateWithoutAddress")
+                .UseInMemoryDatabase(databaseName: "ClientServiceTests_CreateWithoutAddress")
                 .Options;
             using (var context = new ApplicationDbContext(dbContextOptions))
             {
                 var clientRepository = new ClientRepository(context);
                 var service = new ClientService(clientRepository);
-                var result = await service.CreateAsync(GetClientWithOutAddress());
+                var result = await service.CreateAsync(FakeDataForClients.GetClientWithOutAddress());
 
                 Assert.NotNull(result);
                 Assert.Equal(1, await context.Clients.CountAsync());
@@ -37,14 +37,14 @@ namespace CSM.Services.Tests.Clients
         public async Task CreateWithAddress()
         {
             var dbContextOptions = new DbContextOptionsBuilder<ApplicationDbContext>()
-                .UseInMemoryDatabase(databaseName: "CreateWithAddress")
+                .UseInMemoryDatabase(databaseName: "ClientServiceTests_CreateWithAddress")
                 .Options;
 
             using (var context = new ApplicationDbContext(dbContextOptions))
             {
                 var clientRepository = new ClientRepository(context);
                 var service = new ClientService(clientRepository);
-                var result = await service.CreateAsync(GetClientWithAddress());
+                var result = await service.CreateAsync(FakeDataForClients.GetClientWithAddress());
 
                 Assert.NotNull(result);
                 Assert.Equal(1, await context.Clients.CountAsync());
@@ -63,25 +63,25 @@ namespace CSM.Services.Tests.Clients
         public async Task GetClientsByUserId()
         {
             var dbContextOptions = new DbContextOptionsBuilder<ApplicationDbContext>()
-                .UseInMemoryDatabase(databaseName: "GetClientsByUserId")
+                .UseInMemoryDatabase(databaseName: "ClientServiceTests_GetClientsByUserId")
                 .Options;
             
             using (var context = new ApplicationDbContext(dbContextOptions))
             {
                 var clientRepository = new ClientRepository(context);
                 var service = new ClientService(clientRepository);
-                await service.CreateAsync(GetClientWithAddress());
-                await service.CreateAsync(GetClientWithAddress());
+                await service.CreateAsync(FakeDataForClients.GetClientWithAddress());
+                await service.CreateAsync(FakeDataForClients.GetClientWithAddress());
             }
 
             using (var context = new ApplicationDbContext(dbContextOptions))
             {
                 var clientRepository = new ClientRepository(context);
                 var service = new ClientService(clientRepository);
-                var result = await service.GetClientsByUserIdAsync(userId);
+                var result = await service.GetClientsByUserIdAsync(FakeDataForClients.UserId);
                 Assert.NotNull(result);
                 Assert.Equal(2, result.Count);
-                Assert.True(result.TrueForAll(c=>c.ApplicationUserId==userId));
+                Assert.True(result.All( c=> c.ApplicationUserId == FakeDataForClients.UserId));
             }
         }
 
@@ -89,16 +89,16 @@ namespace CSM.Services.Tests.Clients
         public async Task GetClientById()
         {
             var dbContextOptions = new DbContextOptionsBuilder<ApplicationDbContext>()
-                .UseInMemoryDatabase(databaseName: "GetClientById")
+                .UseInMemoryDatabase(databaseName: "ClientServiceTests_GetClientById")
                 .Options;
             Client client;
             using (var context = new ApplicationDbContext(dbContextOptions))
             {
                 var clientRepository = new ClientRepository(context);
                 var service = new ClientService(clientRepository);
-                client = await service.CreateAsync(GetClientWithAddress());
-                await service.CreateAsync(GetClientWithAddress());
-                await service.CreateAsync(GetClientWithAddress());
+                client = await service.CreateAsync(FakeDataForClients.GetClientWithAddress());
+                await service.CreateAsync(FakeDataForClients.GetClientWithAddress());
+                await service.CreateAsync(FakeDataForClients.GetClientWithAddress());
             }
 
             using (var context = new ApplicationDbContext(dbContextOptions))
@@ -118,9 +118,9 @@ namespace CSM.Services.Tests.Clients
         public async Task EditClient()
         {
             var dbContextOptions = new DbContextOptionsBuilder<ApplicationDbContext>()
-                .UseInMemoryDatabase(databaseName: "EditClient")
+                .UseInMemoryDatabase(databaseName: "ClientServiceTests_EditClient")
                 .Options;
-            Client client = GetClientWithAddress();
+            Client client = FakeDataForClients.GetClientWithAddress();
             Client modClient;
             Client foundClient;
 
@@ -185,9 +185,9 @@ namespace CSM.Services.Tests.Clients
         public async Task DeleteClientById()
         {
             var dbContextOptions = new DbContextOptionsBuilder<ApplicationDbContext>()
-                .UseInMemoryDatabase(databaseName: "DeleteClientById")
+                .UseInMemoryDatabase(databaseName: "ClientServiceTests_DeleteClientById")
                 .Options;
-            Client client = GetClientWithAddress();
+            Client client = FakeDataForClients.GetClientWithAddress();
             Client foundClient;
             int count = 0;
             
@@ -217,28 +217,6 @@ namespace CSM.Services.Tests.Clients
             Assert.Equal(0, count);
         }
         #endregion
-
-        private Client GetClientWithOutAddress()
-        {
-            return new Client {
-                FirstName = "Fname",
-                LastName = "Lname",
-                Company = "CompT",
-                ApplicationUserId = userId
-            };
-        }
-
-        private Client GetClientWithAddress()
-        {
-            var client = GetClientWithOutAddress();
-            client.Address = new Address
-            {
-                City = "TestS",
-                Country = "TestC",
-                Street = "TestSt",
-                ZipCode = 11111
-            };
-            return client;
-        }
+                
     }
 }
