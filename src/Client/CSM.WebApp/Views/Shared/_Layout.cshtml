@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8" />
@@ -62,6 +63,14 @@
   <!-- BEGIN PAGE LEVEL JS -->
   <!-- your js for specific page goes here -->
   <!-- END PAGE LEVEL JS -->
+
+  <!-- BEGIN cometchat LEVEL JS -->
+  <script type="text/javascript" src="https://unpkg.com/@@cometchat-pro/chat@1.3.0/CometChat.js"></script>
+  <script src="~/js/cometchat.service.js"></script>  
+  <!-- END cometchat LEVEL JS -->
+
   @RenderSection("Scripts", required: false)
+
+
 </body>
 </html>

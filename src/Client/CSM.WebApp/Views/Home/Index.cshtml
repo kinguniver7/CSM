@@ -2,13 +2,37 @@
   ViewData["Title"] = "Home Page";
 }
 
+@inject Microsoft.Extensions.Options.IOptions<ConfigOptions> mainOptions
+@{
+  var cometChatOptions = mainOptions?.Value?.CometChatOptions;
+}
+
 <div class="page">
   <div class="page-inner">
     <header class="page-title-bar">
       <h1 class="page-title">Page title</h1>
     </header>
     <div class="page-section">
-      Home page
+      superhero1, superhero2
+      Login: <input type="text" id="login_chat" />
+      <button onclick="Ok()">Ok</button>
+
+      Video: <input type="text" id="login_r" />
+      <button onclick="Call()">Ok</button>
+
+      <div id="callScreen"></div>
     </div>
   </div>
 </div>
+
+@section Scripts{
+  <script>
+    function Ok() {
+      CometChatService._init('@cometChatOptions?.AppId', '@cometChatOptions?.AuthOnlyApiKey', document.getElementById('login_chat').value);
+    }
+    function Call() {
+      CometChatService._videoCall(document.getElementById('login_r').value)
+    }
+  </script>
+}
+

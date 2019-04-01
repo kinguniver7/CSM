@@ -13,6 +13,7 @@ using CSM.Services.Implementations.Clients;
 using CSM.Services.Implementations.Users;
 using CSM.Services.Interfaces.Clients;
 using CSM.Services.Interfaces.Users;
+using CSM.WebApp.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -37,11 +38,11 @@ namespace CSM.WebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.Configure<CookiePolicyOptions>(options =>
-            //{
-            //    options.CheckConsentNeeded = context => true;
-            //    options.MinimumSameSitePolicy = SameSiteMode.None;
-            //});
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
             services.AddAutoMapper();
 
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -56,6 +57,9 @@ namespace CSM.WebApp
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddOptions();
+            
+            services.Configure<ConfigOptions>(Configuration);
 
             RegisteredServiceDependency(services);
             RegisteredRepositoryDependency(services);
@@ -78,7 +82,7 @@ namespace CSM.WebApp
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            //app.UseCookiePolicy();
+            app.UseCookiePolicy();
 
             app.UseAuthentication();
 
