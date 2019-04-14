@@ -25,5 +25,10 @@ namespace CSM.WebApp.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        [HttpGet]
+        public IActionResult Spa()
+        {
+            return View();
+        }
     }
 }
