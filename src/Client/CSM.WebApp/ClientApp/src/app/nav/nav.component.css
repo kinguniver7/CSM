@@ -1,0 +1,35 @@
+.mat-toolbar-row, .mat-toolbar-single-row {
+  height:3.5rem;
+}
+
+.sidenav {
+  width: 15rem;
+}
+
+  .sidenav .mat-toolbar {
+    background: inherit;
+    background-color: #346cb0;
+    color: hsla(0,0%,100%,.8);
+    
+  }
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #346cb0;
+  color: hsla(0,0%,100%,.8);
+}
+mat-sidenav-content{
+  height:100%;
+}
+
+.mat-drawer-side {
+  border-right: 1px solid rgba(20,20,31,.05)
+}
+
+.btn-sidenav {
+  padding: 5px!important;
+}
+
+
