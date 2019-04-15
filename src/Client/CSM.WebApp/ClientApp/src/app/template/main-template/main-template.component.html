@@ -2,28 +2,46 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
-               [opened]="!(isHandset$ | async)">
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
+               [opened]="!(isHandset$ | async)" *ngIf="isAuthorized">
+    <mat-toolbar >Menu</mat-toolbar>
+    <mat-nav-list >
       <a mat-list-item routerLink="/home"><fa-icon icon="igloo"></fa-icon>Home</a>
       <a mat-list-item routerLink="/clients"><fa-icon icon="address-card"></fa-icon>Clients</a>
       <a mat-list-item routerLink="/chat"><fa-icon icon="comments"></fa-icon>Chat</a>
     </mat-nav-list>
   </mat-sidenav>
+     
+  
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary" *ngIf="isAuthorized">
       <button type="button"
               aria-label="Toggle sidenav"
               mat-icon-button
-              (click)="drawer.toggle()"
+              (click)="toggleSidenav()"
               *ngIf="isHandset$ | async" class="btn-sidenav">
         <fa-icon icon="bars" size="2x"></fa-icon>
       </button>
-      <span>ClientApp</span>
+      <span fxFlex></span>
+      <div fxLayout="row" fxLayoutAlign="end center">
+        <div class="dropdown">
+
+        </div>
+        <button mat-button [matMenuTriggerFor]="menu"><img src="https://material.angular.io/assets/img/examples/shiba1.jpg" class="mat-card-avatar" /> {{userLogin}}</button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <span>Profile</span>
+          </button>
+          <mat-divider></mat-divider>
+          <button mat-menu-item (click)="logOut()">
+            <span>Log Out</span>
+          </button>
+        </mat-menu>
+      </div>
+
     </mat-toolbar>
+    
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
   </mat-sidenav-content>
-  
-</mat-sidenav-container>
 
+</mat-sidenav-container>

@@ -5,9 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CSM.WebApp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CSM.WebApp.Controllers
 {
+    [Route("api/[controller]")]
     public class HomeController : Controller
     {
         public IActionResult Index()
@@ -15,20 +17,14 @@ namespace CSM.WebApp.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpGet, Authorize]
+        public IActionResult Get(string code)
         {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-        [HttpGet]
-        public IActionResult Spa()
-        {
-            return View();
+            if (code == "401")
+            {
+                return StatusCode(401);
+            }
+            return Ok(new string[] { "John Doe", "Jane Doe" });
         }
     }
 }

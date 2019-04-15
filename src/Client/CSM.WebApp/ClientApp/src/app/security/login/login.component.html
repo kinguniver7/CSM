@@ -1,0 +1,31 @@
+<main class="auth">
+  <header id="auth-header" class="auth-header">
+    <p>
+      Don't have a account? <a routerLink="/signup" >Create One</a>
+    </p>
+    <canvas class="particles-js-canvas-el" width="2133" height="260" style="width: 100%; height: 100%;"></canvas>
+  </header>
+
+  <form class="auth-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Username" formControlName="email">
+      <mat-error *ngIf="loginForm.controls['email'].hasError('email') && !loginForm.controls['email'].hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Password" type="password" formControlName="password">
+    </mat-form-field>
+    <button class="full-width" mat-raised-button color="primary" type="submit">Sign In</button>
+    <mat-error *ngIf="error">
+      {{error}}
+    </mat-error>    
+  </form>
+
+</main>
+

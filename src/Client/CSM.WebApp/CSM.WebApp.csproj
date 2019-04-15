@@ -23,6 +23,11 @@
 
 
   <ItemGroup>
+    <Folder Include="ClientApp\src\app\models\" />
+    <Folder Include="ClientApp\src\app\security\guards\" />
+    <Folder Include="ClientApp\src\app\security\interceptors\" />
+    <Folder Include="ClientApp\src\app\security\services\" />
+    <Folder Include="Helpers\" />
     <Folder Include="ViewModels\Clients\" />
   </ItemGroup>
 
