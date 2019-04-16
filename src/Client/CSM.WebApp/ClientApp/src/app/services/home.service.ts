@@ -9,7 +9,15 @@ export class HomeService {
 
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
-  getHome(status): Observable<any> {
-    return this.http.get(this.baseUrl + "api/home?code=" + status);
+  getUserHome(): Observable<any> {
+    return this.http.get(this.baseUrl + "api/home/testuserrole");
+  }
+
+  getAdminHome(): Observable<any> {
+    return this.http.get(this.baseUrl + "api/home/testadminrole");
+  }
+
+  getHome(): Observable<any> {
+    return this.http.get(this.baseUrl + "api/home/get");
   }
 }

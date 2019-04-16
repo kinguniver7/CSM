@@ -9,12 +9,23 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CSM.WebApp.Controllers
 {
-    [Route("api/[controller]")]
     public class HomeController : Controller
     {
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpGet, Authorize(Roles = "User")]
+        public IActionResult TestUserRole()
+        {
+            return Ok(201);
+        }
+
+        [HttpGet, Authorize(Roles = "Admin")]
+        public IActionResult TestAdminRole()
+        {
+            return Ok(201);
         }
 
         [HttpGet, Authorize]

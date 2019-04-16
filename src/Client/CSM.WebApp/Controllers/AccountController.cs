@@ -52,12 +52,15 @@ namespace CSM.WebApp.Controllers
             var user = new ApplicationUser
             {
                 UserName = model.Email,
-                Email = model.Email
+                Email = model.Email                
             };
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
             {
+                //add claim
+
+                await _userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, "User"));
                 await _signInManager.SignInAsync(user, false);
                 var token = await GenerateJwtToken(model.Email, user);
                 return Ok(new { token } );
@@ -68,13 +71,21 @@ namespace CSM.WebApp.Controllers
 
         private async Task<object> GenerateJwtToken(string email, IdentityUser user)
         {
+
+             
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub, email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(ClaimTypes.NameIdentifier, user.Id)
             };
-            
+
+
+            foreach (var claim in await _userManager.GetClaimsAsync((ApplicationUser)user))
+            {
+                claims.Add(new Claim(claim.Type, claim.Value));
+            }
+
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtKey"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var expires = DateTime.Now.AddDays(Convert.ToDouble(_configuration["JwtExpireDays"]));
