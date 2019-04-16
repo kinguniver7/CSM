@@ -11,4 +11,4 @@
 
 </ul>
 
-<text>[malpinsoft.com](malpinsoft.com)</text>
+<text>Maksym Kravchuk</text>
