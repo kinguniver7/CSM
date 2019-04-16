@@ -1,4 +1,6 @@
 # CSM - A simplified version of the system architecture
+
+## Technology
 <ul>
   <li>ASP.NET Core 2.2 + Angular 7</li>
   <li>ASP.NET Core Authentication with JWT and Angular
@@ -11,4 +13,7 @@
 
 </ul>
 
-<text>Maksym Kravchuk</text>
+
+## Author
+
+* **Maksym Kravchuk**
