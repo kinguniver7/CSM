@@ -1,5 +1,5 @@
-# CSM - A simplified version of the system architecture
-
+# CSM
+A simplified version of the system architecture
 ## Technology
 <ul>
   <li>ASP.NET Core 2.2 + Angular 7</li>
